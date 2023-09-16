@@ -11,7 +11,7 @@ import 'amfe-flexible'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
-
+//2023-09-16 13:19:37
 Vue.config.productionTip = false
 
 new Vue({
