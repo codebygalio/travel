@@ -86,7 +86,7 @@ margin-top: .1rem;
         height: .44rem;
         line-height: .44rem;
         text-align: center;
-        color: #333;
+        color: $darkTextColor ;
       }
         
    }

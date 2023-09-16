@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <HomeHeader/>
- <MySwiper/>
+ <MySwiper :list="swiperList"/>
  <Icons :list="iconList"/>
+ <Recommend :list="recommendList"/>
+ <Weekend :list="weekendList"/>
   </div>
 </template>
 
@@ -10,52 +12,36 @@
 import HomeHeader from './components/HomeHeader'
 import MySwiper from './components/MySwiper'
 import Icons from './components/Icons'
+import Recommend from './components/Recommend'
+import Weekend from './components/Weekend'
+import axios from 'axios'
 export default {
   name: 'Home',
    components:{
     HomeHeader,
     MySwiper,
-    Icons
+    Icons,
+    Recommend,
+    Weekend
   },
   data(){
     return {
-        iconList: [{
-        "id": "0001",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-        "desc": "景点门票"
-      }, {
-        "id": "0002",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png",
-        "desc": "滑雪季"
-      }, {
-        "id": "0003",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png",
-        "desc": "泡温泉"
-      }, {
-        "id": "0004",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png",
-        "desc": "动植园"
-      }, {
-        "id": "0005",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/d0/e09575e66f4aa402.png",
-        "desc": "游乐园"
-      }, {
-        "id": "0006",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/59/569d3c096e542502.png",
-        "desc": "必游榜单"
-      }, {
-        "id": "0007",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/17/4bd370f3eb1acd02.png",
-        "desc": "演出"
-      }, {
-        "id": "0008",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/7f/b1ea3c8c7fb6db02.png",
-        "desc": "城市观光"
-      }, {
-        "id": "0009",
-        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
-        "desc": "一日游"
-      }],
+        swiperList:[],
+        recommendList: [],
+        iconList: [],
+      weekendList: []
+    }
+  },
+  created(){
+    this.initList()
+  },
+  methods:{
+   async initList(){
+        const {data:{data}} =await axios.get('/mock/index.json')
+        this.swiperList= data.swiperList
+        this.recommendList = data.recommendList
+        this.iconList = data.iconList
+        this.weekendList = data.weekendList
     }
   }
 

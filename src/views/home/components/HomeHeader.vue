@@ -25,8 +25,8 @@ export default {
 <style lang="scss" scoped>
 .header {
     display: flex;
-    line-height: 0.86rem;
-    background: #00bcd4;
+    line-height: $headerHeight;
+    background: $bgColor;
     color: #fff;
     .header-left {
         width: 0.64rem;
