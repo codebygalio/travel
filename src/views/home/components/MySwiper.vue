@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-    name: "",
+    name: "MySwiper",
     data() {
         return {
             swiperOption: {
