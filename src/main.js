@@ -3,6 +3,13 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import 'normalize.css/normalize.css'
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'amfe-flexible'
+// require styles
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 Vue.config.productionTip = false
 
