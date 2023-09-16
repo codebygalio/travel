@@ -11,6 +11,7 @@ import 'amfe-flexible'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
+
 Vue.config.productionTip = false
 
 new Vue({
