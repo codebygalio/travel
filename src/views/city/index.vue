@@ -1,6 +1,6 @@
 <template>
 <div class="city-container">
-    <Header/>
+        <Header/>
     <Search :cities="cities"/>
     <List  :cities="cities" :hot="hotCities"  :letter="letter"/>
     <Alphabet :cities="cities" @change="handleLetterChange"/>
@@ -38,7 +38,6 @@ methods:{
     this.hotCities = data.hotCities
     },
     handleLetterChange (letter) {
-        debugger
       this.letter = letter
     }
 }

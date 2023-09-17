@@ -5,10 +5,11 @@
       v-for="item of letters"
       :key="item"
       :ref="item"
-      @touchstart.prevent="handleTouchStart"
+      @click="handleLetterClick"
+      @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
-      @click="handleLetterClick"
+      
     >
       {{item}}
     </li>
@@ -42,7 +43,6 @@ export default {
   },
   methods: {
     handleLetterClick (e) {
-        debugger
       this.$emit('change', e.target.innerText)
     },
     handleTouchStart () {
@@ -54,8 +54,8 @@ export default {
           clearTimeout(this.timer)
         }
         this.timer = setTimeout(() => {
-          const touchY = e.touches[0].clientY - 79
-          const index = Math.floor((touchY - this.startY) / 20)
+          const touchY = e.touches[0].clientY - 59.25
+          const index = Math.floor((touchY - this.startY) / 15)
           if (index >= 0 && index < this.letters.length) {
             this.$emit('change', this.letters[index])
           }
@@ -79,7 +79,7 @@ export default {
     right: 0;
     bottom: 0;
     width: .4rem;
-    z-index: 99999999999;
+    user-select: none;
     .item{
          line-height: .4rem;
       text-align: center;
