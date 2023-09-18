@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home-container">
     <HomeHeader/>
  <MySwiper :list="swiperList"/>
  <Icons :list="iconList"/>
@@ -29,11 +29,19 @@ export default {
         swiperList:[],
         recommendList: [],
         iconList: [],
-      weekendList: []
+      weekendList: [],
+      lastCity:''
     }
   },
   created(){
     this.initList()
+    this.lastCity = this.$store.state.city
+  },
+  activated(){
+    if(this.lastCity !== this.$store.state.city){
+        this.initList()
+        this.lastCity = this.$store.state.city
+    }
   },
   methods:{
    async initList(){
@@ -47,3 +55,6 @@ export default {
 
 }
 </script>
+<style scoped lang="scss">
+
+</style>

@@ -5,7 +5,7 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">City </div>
+                        <div class="button">{{$store.state.city}} </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         handleCityClick(city) {
-            console.log('city=',city)
+            this.$store.dispatch('changeCity',city)
             this.$router.push("/");
         },
     },
